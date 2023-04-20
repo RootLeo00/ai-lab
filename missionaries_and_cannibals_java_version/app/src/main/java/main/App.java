@@ -3,7 +3,6 @@
  */
 package main;
 
-import aima.core.environment.wumpusworld.AgentPercept;
 import aima.core.search.framework.SearchAgent;
 import aima.core.search.framework.problem.*;
 import aima.core.search.uninformed.BreadthFirstSearch;
