@@ -13,6 +13,9 @@ class MCProblem(Problem):
     def actions(self, state):
         print("[action()] state =", state)
         state=list(state)
+        if len(state)==0: 
+            print ("DEAD END")
+            return ()
         result=[]
         if state[2] : #barca a sx -> prelevo 
             if state[0] >= 1: #se ci sono almeno 1 missionario
@@ -70,10 +73,10 @@ class MCProblem(Problem):
                 result[0] += 1
                 result[1] += 1
         result[2] = not result[2]
-        # if result[0] < result[1] and result[0] != 0:
-        #     return None
-        # if 3-result[0] < 3-result[1] and 3-result[0] != 0:
-        #     return None
+        if result[0] < result[1] and result[0] != 0:
+            return ()
+        if 3-result[0] < 3-result[1] and 3-result[0] != 0:
+            return ()
         print("result ", result)
         return tuple(result)
-
+    
