@@ -1,4 +1,3 @@
-import sys
 from aima import search
 from mc_problem import MCProblem
 
@@ -45,7 +44,6 @@ for s in enumerate(soln.path()):
 
 for row in river:
     print('| {:^2} | {:^} | {:^} | {:^} | {:^} | {:^} |'.format(*row))
-    # print(s[0], "\t", missionaires_left+cannibals_left,"\t\t",boat,"\t\t", missionaires_right+cannibals_right)
 
 
 
