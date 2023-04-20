@@ -11,10 +11,10 @@ class MCProblem(Problem):
         Problem.__init__(self,initial,goal)
     
     def actions(self, state):
-        print("[action()] state =", state)
+        # print("[action()] state =", state)
         state=list(state)
         if len(state)==0: 
-            print ("DEAD END")
+            # print ("DEAD END")
             return ()
         result=[]
         if state[2] : #barca a sx -> prelevo 
@@ -39,15 +39,15 @@ class MCProblem(Problem):
                 result.append("CC")
             if 3-state[0] >= 1 and 3-state[1] >= 1:
                 result.append("MC")
-        print("actions ", result)
+        # print("actions ", result)
         return tuple(result)
     
     def result(self, state, action):
-        print("[result()] action=", action)
+        # print("[result()] action=", action)
         state=list(state)
         result = state[:]
         if state[2] : #barca a sx -> prelevo
-            print("barca a sinistra")
+            # print("barca a sinistra")
             if action =="M":
                 result[0] -= 1
             elif action == "C":
@@ -60,7 +60,7 @@ class MCProblem(Problem):
                 result[0] -= 1
                 result[1] -= 1
         else: #barca a dx -> faccio scendere
-            print("barca a destra")
+            # print("barca a destra")
             if action == "M":
                 result[0] += 1
             elif action == "C":
@@ -77,6 +77,6 @@ class MCProblem(Problem):
             return ()
         if 3-result[0] < 3-result[1] and 3-result[0] != 0:
             return ()
-        print("result ", result)
+        # print("result ", result)
         return tuple(result)
     
