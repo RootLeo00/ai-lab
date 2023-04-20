@@ -1,9 +1,12 @@
 from aima import search
 from mc_problem import MCProblem
+import time
 
 def run():
     problem = MCProblem()
+    start_time=time.time()
     soln= search.breadth_first_graph_search(problem)
+    print("Time taken: ", time.time()-start_time, "seconds")
     return soln
 
 def pretty_print(soln):
