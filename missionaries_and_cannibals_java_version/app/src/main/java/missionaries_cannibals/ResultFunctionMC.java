@@ -7,60 +7,71 @@ public class ResultFunctionMC implements ResultFunction {
     @Override
     public Object result(Object s, Action a) {
         int [] state = (int[])s;
+        int [] result = new int[3];
+        result[0]=state[0];
+        result[1]=state[1];
+        result[2]=state[2];
          ActionMC action =(ActionMC)a;
-    if(state[2]==1) {
+         System.out.println("from state: "+state[0]+":"+state[1]+":"+state[2]+" action: "+action.getName());
+        
+    if(state[2]==0) {
         switch (action.getName()) {
             case "M":
-                state[0]=-1;
+                result[0]-=1;
 
             break;
             case "C":
-                state[1]=-1;
+                result[1]-=1;
 
                 break;
             case "MM":
-                state[0]=-2;
+                result[0]-=2;
 
                 break;
             case "CC":
-                state[1]=-2;
+                result[1]-=2;
 
                 break;
             case "MC":
-                state[0]=-1;
-                state[1]=-1;
+                result[0]-=1;
+                result[1]-=1;
 
                 break;
         }
-        state[2]=0;
     }else{
         switch (action.getName()) {
             case "M":
-                state[0]=+1;
+                result[0]+=1;
 
             break;
             case "C":
-                state[1]=+1;
+                result[1]+=1;
 
                 break;
             case "MM":
-                state[0]=+2;
+                result[0]+=2;
 
                 break;
             case "CC":
-                state[1]=+2;
+                result[1]+=2;
 
                 break;
             case "MC":
-                state[0]=+1;
-                state[1]=+1;
+                result[0]+=1;
+                result[1]+=1;
 
                 break;
         }
-        state[2]=1;
+        
+        }
+        if(state[2]==1){
+            result[2]=0;
+
+        }else{
+            result[2]=1;
         }
 
-    return state;
+    return result;
 
 
     }
