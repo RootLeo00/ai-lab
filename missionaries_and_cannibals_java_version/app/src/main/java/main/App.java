@@ -29,8 +29,8 @@ public class App {
             SearchAgent agent =new SearchAgent(problem,new BreadthFirstSearch(new GraphSearch()));
             // run search agent
             //System.out.println(a.getName());
-            System.out.println(agent.getActions());
-            System.out.println(agent.isDone());
+            System.out.println(agent.getActions()); //getActions() ti da l'array delle azioni che ti porta alla soluzione
+            System.out.println(agent.isDone()); //#TODO cos'è isDone()
             
             SearchAgent agent1 =new SearchAgent(problem,new BreadthFirstSearch(new TreeSearch()));
             // run search agent
